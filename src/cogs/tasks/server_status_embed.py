@@ -27,6 +27,8 @@ class ServerStatusEmbedManager(commands.Cog):
 		self.server_status_update_loop_is_running: bool = False
 		self.update_all.start()
 		self.status_embeds: dict[str, list[list[discord.Embed]]] = {}
+		self.server_status_embeds_count: int = 0
+		"""作成されたサーバーステータス埋め込みメッセージの総数 (全ギルドの合計)"""
 
 	def _check_data_changed(
 		self,
@@ -141,6 +143,9 @@ class ServerStatusEmbedManager(commands.Cog):
 		schedule_data: dict[str, r6sss.types.MaintenanceSchedule] | None = None
 		msg = None
 
+		# 作成されたサーバーステータス埋め込みメッセージの総数をリセット
+		self.server_status_embeds_count = 0
+
 		# 埋め込みメッセージが渡されていない場合は情報を取得して生成する (情報の更新はしない)
 		if status_embeds is None:
 			# 各言語のサーバーステータス埋め込みメッセージのリスト
@@ -249,6 +254,9 @@ class ServerStatusEmbedManager(commands.Cog):
 							# メンテナンススケジュール埋め込みなし (ステータス埋め込みのみ)
 							else:
 								await msg.edit(embeds=target_embeds[0])
+
+							# 作成されたサーバーステータス埋め込みメッセージの総数をカウントする
+							self.server_status_embeds_count += 1
 
 						# メッセージが存在しない (削除されている) 場合
 						except discord.errors.NotFound as err:

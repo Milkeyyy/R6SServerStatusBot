@@ -219,7 +219,9 @@ try:
 	# 言語データを読み込む
 	Localization.load_locale_data()
 	# Cogs の読み込み
-	client.load_extensions("cogs.commands.settings", "cogs.commands.status", "cogs.commands.general", "cogs.tasks.server_status_embed")
+	client.load_extensions(
+		"cogs.commands.settings", "cogs.commands.status", "cogs.commands.dev", "cogs.commands.general", "cogs.tasks.server_status_embed"
+	)
 	# コマンドのローカライズ
 	Localization.localize_commands()
 
