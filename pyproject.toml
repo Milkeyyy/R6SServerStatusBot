@@ -1,6 +1,6 @@
 [project]
 name = "r6sss-discord"
-version = "2.5.11"
+version = "2.6.0"
 description = "R6SSS Discord Bot"
 readme = "README.md"
 requires-python = ">=3.12"
