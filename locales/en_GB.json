@@ -97,22 +97,22 @@
 		"OwnerAnnounce_Warning_UpdateServerStatusMessage_Error_Forbidden": "Failed to update the server status message created in the text channel {1} ​​of the server `{0}`.\nPlease make sure that R6SSS has permission to view the text channel you are creating, and then create it again with the `/create` command.",
 		"DonationEmbed_Title": "Would you like to support the development of R6SSS?",
 		"DonationEmbed_Description": "Thank you for using R6SSS!\nThe development of this Bot and the operation of the server are supported by your contributions.\n\nIf you'd like, please support our future development!\n### - [GitHub Sponsors](https://github.com/sponsors/Milkeyyy)\n\n(Your support will be used for server maintenance costs and to help maintain development motivation.)",
-		"Help_Title": "📘 コマンドヘルプ",
-		"Help_Description": "R6SSS で利用できるコマンド一覧です。",
-		"Help_Category_General": "一般コマンド",
-		"Help_Category_Status": "ステータスコマンド",
-		"Help_Category_Admin": "管理コマンド",
-		"Help_Item_about": "`/about`\n  このBotの情報を送信します。",
-		"Help_Item_ping": "`/ping`\n  このBotのレイテンシーを送信します。",
-		"Help_Item_status": "`/status`\n  現在のサーバーステータスを送信します。(自動更新はされません)",
-		"Help_Item_schedule": "`/schedule`\n  現在のメンテナンススケジュールを送信します。(自動更新はされません)",
-		"Help_Item_create": "`/create [テキストチャンネル]`\n  指定したテキストチャンネルへ、ステータス変化時に自動更新されるサーバーステータスを作成します。",
-		"Help_Item_viewsettings": "`/viewsettings`\n  現在の設定内容を表示します。",
-		"Help_Item_setindicator": "`/setindicator <有効/無効>`\n  サーバーステータスのインジケーターをテキストチャンネル名の先頭に表示するかを設定します。",
-		"Help_Item_setlanguage": "`/setlanguage <言語>`\n  サーバーステータスの表示言語を設定します。",
-		"Help_Item_setscheduledisplay": "`/setscheduledisplay <有効/無効>`\n  サーバーステータスメッセージにメンテナンススケジュールを表示するかを設定します。",
-		"Help_Item_setnotification": "`/setnotification <有効/無効> [テキストチャンネル] [ロール] [自動削除]`\n  サーバーステータスの変化通知を設定します。",
-		"Help_Footer": "※ 管理コマンドはサーバー管理者のみ実行できます。"
+		"Help_Title": "📘 Command Help",
+		"Help_Description": "List of commands available in R6SSS.",
+		"Help_Category_General": "General Commands",
+		"Help_Category_Status": "Status Commands",
+		"Help_Category_Admin": "Admin Commands",
+		"Help_Item_about": "`/about`\n  Sends information about this Bot.",
+		"Help_Item_ping": "`/ping`\n  Sends this Bot's latency.",
+		"Help_Item_status": "`/status`\n  Sends the current server status. (Does not update automatically)",
+		"Help_Item_schedule": "`/schedule`\n  Sends the current maintenance schedule. (Does not update automatically)",
+		"Help_Item_create": "`/create [text channel]`\n  Creates a server status message in the specified text channel that automatically updates when the status changes.",
+		"Help_Item_viewsettings": "`/viewsettings`\n  Displays the current settings.",
+		"Help_Item_setindicator": "`/setindicator <enable/disable>`\n  Sets whether to display the server status indicator (emoji) at the beginning of the text channel name.",
+		"Help_Item_setlanguage": "`/setlanguage <language>`\n  Sets the display language for server status.",
+		"Help_Item_setscheduledisplay": "`/setscheduledisplay <enable/disable>`\n  Sets whether to display the maintenance schedule in the server status message.",
+		"Help_Item_setnotification": "`/setnotification <enable/disable> [text channel] [role] [auto delete]`\n  Sets notifications to be sent when the server status changes.",
+		"Help_Footer": "* Admin commands can only be executed by server administrators."
 	},
 	"help": {
 		"title": "Help_Title",
@@ -135,7 +135,7 @@
 	"commands": {
 		"help": {
 			"name": "help",
-			"description": "コマンド一覧を表示します。"
+			"description": "Displays a list of commands."
 		},
 		"about": {
 			"name": "about",
