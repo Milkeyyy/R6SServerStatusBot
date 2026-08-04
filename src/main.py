@@ -211,6 +211,11 @@ try:
 		except NameError:
 			pass
 
+	if args.dev:
+		logger.info("開発モードで起動")
+		logger.info("開発用サーバーID: %s", getenv("DEBUG_GUILD_ID", ""))
+		client.debug_guilds = [int(getenv("DEBUG_GUILD_ID", ""))]  # 開発用サーバーのIDを指定
+
 	# 言語データを読み込む
 	Localization.load_locale_data()
 	# Cogs の読み込み
