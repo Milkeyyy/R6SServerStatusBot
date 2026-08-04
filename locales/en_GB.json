@@ -106,13 +106,13 @@
 		"Help_Item_ping": "`/ping`\n  Sends this Bot's latency.",
 		"Help_Item_status": "`/status`\n  Sends the current server status. (Does not update automatically)",
 		"Help_Item_schedule": "`/schedule`\n  Sends the current maintenance schedule. (Does not update automatically)",
-		"Help_Item_create": "`/create [text_channel]`\n  Creates a server status message that automatically updates when status changes.",
+		"Help_Item_create": "`/create [text channel]`\n  Creates a server status message in the specified text channel that automatically updates when the status changes.",
 		"Help_Item_viewsettings": "`/viewsettings`\n  Displays the current settings.",
-		"Help_Item_setindicator": "`/setindicator <enable/disable>`\n  Sets whether to show the server status indicator at the beginning of the channel name.",
+		"Help_Item_setindicator": "`/setindicator <enable/disable>`\n  Sets whether to display the server status indicator (emoji) at the beginning of the text channel name.",
 		"Help_Item_setlanguage": "`/setlanguage <language>`\n  Sets the display language for server status.",
-		"Help_Item_setscheduledisplay": "`/setscheduledisplay <enable/disable>`\n  Sets whether to show maintenance schedule in the server status message.",
-		"Help_Item_setnotification": "`/setnotification <enable/disable> [text_channel] [role] [auto_delete]`\n  Sets notifications to be sent when server status changes.",
-		"Help_Footer": "* Admin commands require administrator permissions in the server."
+		"Help_Item_setscheduledisplay": "`/setscheduledisplay <enable/disable>`\n  Sets whether to display the maintenance schedule in the server status message.",
+		"Help_Item_setnotification": "`/setnotification <enable/disable> [text channel] [role] [auto delete]`\n  Sets notifications to be sent when the server status changes.",
+		"Help_Footer": "* Admin commands can only be executed by server administrators."
 	},
 	"help": {
 		"title": "Help_Title",
@@ -135,7 +135,7 @@
 	"commands": {
 		"help": {
 			"name": "help",
-			"description": "Displays the command list."
+			"description": "Displays a list of commands."
 		},
 		"about": {
 			"name": "about",
