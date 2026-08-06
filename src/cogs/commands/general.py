@@ -3,7 +3,7 @@ from discord.ext import commands
 
 import embeds
 from app import App
-from client import client
+from client import bot
 from config import GuildConfigManager
 from localizations import Localization
 
@@ -39,7 +39,7 @@ class GeneralCommands(commands.Cog):
 	@discord.default_permissions(send_messages=True)
 	@commands.cooldown(2, 5)
 	async def ping(self, ctx: discord.ApplicationContext) -> None:
-		raw_ping = client.latency
+		raw_ping = bot.client.latency
 		ping = round(raw_ping * 1000)
 		ping_embed = discord.Embed(
 			title="Pong!",
@@ -54,7 +54,7 @@ class GeneralCommands(commands.Cog):
 	async def about(self, ctx: discord.ApplicationContext) -> None:
 		embed = discord.Embed(color=discord.Colour.blue())
 		embed.set_image(url=App.bot_banner_url)
-		embed.set_author(name=App.NAME, icon_url=client.user.display_avatar.url)
+		embed.set_author(name=App.NAME, icon_url=bot.client.user.display_avatar.url)
 		embed.set_footer(text=App.COPYRIGHT)
 		embed.add_field(
 			name="Version",
@@ -62,7 +62,7 @@ class GeneralCommands(commands.Cog):
 		)
 		embed.add_field(
 			name="Guilds",
-			value=f"`{len(client.guilds)}`",
+			value=f"`{len(bot.client.guilds)}`",
 			inline=False,
 		)
 		embed.add_field(
@@ -94,8 +94,8 @@ class GeneralCommands(commands.Cog):
 			color=discord.Colour.from_rgb(79, 168, 254),
 		)
 
-		if client.user is not None:
-			embed.set_author(name=App.NAME, icon_url=client.user.display_avatar.url)
+		if bot.client.user is not None:
+			embed.set_author(name=App.NAME, icon_url=bot.client.user.display_avatar.url)
 
 		embed.add_field(
 			name=self._get_help_text(lang, "category_general"),

@@ -48,6 +48,7 @@ ignore = [
     "TD002", # missing todo author
     "TD003", # missing todo link
     "W191", # インデントがタブになっている
+    "E402", # モジュールレベルインポートがファイルの先頭にない（循環参照回避のため）
 ]
 unfixable = [
     "F401", # unused import

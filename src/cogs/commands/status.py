@@ -9,7 +9,7 @@ from pycord.i18n import _
 
 import __main__
 import embeds
-from client import client
+from client import bot
 from config import GuildConfigManager
 from debug_logger import DebugLogger
 from logger import logger
@@ -230,7 +230,7 @@ class StatusCommands(commands.Cog):
 		ctx: discord.ApplicationContext,
 		comparison_target: str,
 	) -> None:
-		if await client.is_owner(ctx.user):
+		if await bot.client.is_owner(ctx.user):
 			await ctx.defer(ephemeral=True)
 
 			raw_status = json.loads(comparison_target)["data"]

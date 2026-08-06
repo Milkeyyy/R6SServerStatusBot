@@ -10,7 +10,7 @@ from discord.ext import commands, tasks
 import embeds
 import icons
 import localizations
-from client import client
+from client import bot
 from config import GuildConfigManager
 from db import DBManager
 from kumasan import KumaSan
@@ -403,7 +403,7 @@ class ServerStatusEmbedManager(commands.Cog):
 					]
 
 			# 各ギルドの埋め込みメッセージIDチェック、存在する場合はメッセージを更新する
-			for guild in client.guilds:
+			for guild in bot.client.guilds:
 				logger.info("ギルド: %s", guild.name)
 				try:
 					# データベースからギルドコンフィグを取得する

@@ -3,7 +3,7 @@ from typing import ClassVar
 
 from box import Box
 
-from client import client
+from client import bot
 from db import DBManager
 from kumasan import KumaSan
 from logger import logger
@@ -51,7 +51,7 @@ class GuildConfigManager:
 		logger.info("ギルドコンフィグをチェック")
 
 		# コンフィグファイルの各ギルドの項目チェック
-		for guild in client.guilds:
+		for guild in bot.client.guilds:
 			gid = str(guild.id)
 			logger.info("- ID: %s", gid)
 			# データベースからIDに一致するコンフィグを取得する
