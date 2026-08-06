@@ -693,7 +693,7 @@ dependencies = [
 
 [[package]]
 name = "r6sss-discord"
-version = "2.5.10"
+version = "2.6.0"
 source = { virtual = "." }
 dependencies = [
     { name = "httpx" },
