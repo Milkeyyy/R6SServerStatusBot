@@ -1,8 +1,6 @@
 import discord
 from discord.ext import commands
 
-from cogs.tasks.server_status_embed import ServerStatusEmbedManager
-
 
 class DevCommands(commands.Cog):
 	def __init__(self, bot: discord.Bot) -> None:
