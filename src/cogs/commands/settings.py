@@ -7,7 +7,6 @@ from pycord.i18n import _
 
 import embeds
 from client import bot
-from cogs.tasks.server_status_embed import ServerStatusEmbedManager
 from config import GuildConfigManager
 from debug_logger import DebugLogger
 from localizations import Localization
