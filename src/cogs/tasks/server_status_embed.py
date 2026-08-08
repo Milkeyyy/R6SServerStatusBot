@@ -28,6 +28,7 @@ class ServerStatusEmbedManager(commands.Cog):
 		self.update_all.start()
 		self.status_embeds: dict[str, list[list[discord.Embed]]] = {}
 		self.server_status_embeds_count: int = 0
+		self.server_status_embeds_update_time: float = 0.0
 		"""作成されたサーバーステータス埋め込みメッセージの総数 (全ギルドの合計)"""
 
 	def _check_data_changed(
@@ -494,6 +495,7 @@ class ServerStatusEmbedManager(commands.Cog):
 		logger.info("- 処理時間: %s s", p_time_str)
 
 		await KumaSan.ping(state="up", message="サーバーステータスの更新完了", ping=str(int(p_time * 1000)))  # ミリ秒に直して渡す
+		self.server_status_embeds_update_time = p_time
 
 	@update_all.after_loop
 	async def after_update_all(self) -> None:
