@@ -11,6 +11,7 @@ except ImportError:
 
 
 from client import bot
+from cogs_list import COGS
 from localizations import Localization
 from logger import logger
 
@@ -38,9 +39,10 @@ try:
 	# 言語データを読み込む
 	Localization.load_locale_data()
 	# Cogs の読み込み
-	bot.client.load_extensions(
-		"cogs.commands.settings", "cogs.commands.status", "cogs.commands.dev", "cogs.commands.general", "cogs.tasks.server_status_embed"
-	)
+	bot.client.load_extensions(*COGS)
+	# 開発モードの場合は SuperDevCommands を読み込む
+	if args.dev:
+		bot.client.load_extensions("cogs.commands.superdev")
 	# コマンドのローカライズ
 	Localization.localize_commands()
 
