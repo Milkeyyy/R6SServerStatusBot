@@ -144,9 +144,6 @@ class ServerStatusEmbedManager(commands.Cog):
 		schedule_data: dict[str, r6sss.types.MaintenanceSchedule] | None = None
 		msg = None
 
-		# 作成されたサーバーステータス埋め込みメッセージの総数をリセット
-		self.server_status_embeds_count = 0
-
 		# 埋め込みメッセージが渡されていない場合は情報を取得して生成する (情報の更新はしない)
 		if status_embeds is None:
 			# 各言語のサーバーステータス埋め込みメッセージのリスト
@@ -402,6 +399,9 @@ class ServerStatusEmbedManager(commands.Cog):
 						embeds.Notification.get_by_comparison_result(result, lang_code, schedule_data.get(lang_code))
 						for result in compare_result
 					]
+
+			# 作成されたサーバーステータス埋め込みメッセージの総数をリセット
+			self.server_status_embeds_count = 0
 
 			# 各ギルドの埋め込みメッセージIDチェック、存在する場合はメッセージを更新する
 			for guild in bot.client.guilds:
