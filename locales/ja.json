@@ -96,9 +96,47 @@
 		"Cmd_create_Error_MissingAccess": "テキストチャンネル {0} を閲覧する権限がありません！",
 		"OwnerAnnounce_Warning_UpdateServerStatusMessage_Error_Forbidden": "サーバー `{0}` のテキストチャンネル {1} へ作成されたサーバーステータスメッセージの更新に失敗しました。\nR6SSS に作成先のテキストチャンネルを閲覧する権限が付与されているか確認してから、再度 `/create` コマンドで作成を行ってください。",
 		"DonationEmbed_Title": "R6SSS の開発を応援しませんか？",
-		"DonationEmbed_Description": "いつも R6SSS をご利用いただき、ありがとうございます！\nこのBotの開発やサーバーの運営は、皆さまからのご支援によって支えられています。\n\nもしよろしければ、今後の開発の応援をお願いいたします！\n### - [GitHub Sponsors](https://github.com/sponsors/Milkeyyy)\n\n(いただいたご支援は、サーバー維持費や開発のモチベーション維持に活用させていただきます。)"
+		"DonationEmbed_Description": "いつも R6SSS をご利用いただき、ありがとうございます！\nこのBotの開発やサーバーの運営は、皆さまからのご支援によって支えられています。\n\nもしよろしければ、今後の開発の応援をお願いいたします！\n### - [GitHub Sponsors](https://github.com/sponsors/Milkeyyy)\n\n(いただいたご支援は、サーバー維持費や開発のモチベーション維持に活用させていただきます。)",
+		"Help_Title": "📘 コマンドヘルプ",
+		"Help_Description": "R6SSS で利用できるコマンド一覧です。",
+		"Help_Category_General": "一般コマンド",
+		"Help_Category_Status": "ステータスコマンド",
+		"Help_Category_Admin": "管理コマンド",
+		"Help_Item_about": "`/about`\n  このBotの情報を送信します。",
+		"Help_Item_ping": "`/ping`\n  このBotのレイテンシーを送信します。",
+		"Help_Item_status": "`/status`\n  現在のサーバーステータスを送信します。(自動更新はされません)",
+		"Help_Item_schedule": "`/schedule`\n  現在のメンテナンススケジュールを送信します。(自動更新はされません)",
+		"Help_Item_create": "`/create [テキストチャンネル]`\n  指定したテキストチャンネルへ、ステータス変化時に自動更新されるサーバーステータスを作成します。",
+		"Help_Item_viewsettings": "`/viewsettings`\n  現在の設定内容を表示します。",
+		"Help_Item_setindicator": "`/setindicator <有効/無効>`\n  サーバーステータスのインジケーターをテキストチャンネル名の先頭に表示するかを設定します。",
+		"Help_Item_setlanguage": "`/setlanguage <言語>`\n  サーバーステータスの表示言語を設定します。",
+		"Help_Item_setscheduledisplay": "`/setscheduledisplay <有効/無効>`\n  サーバーステータスメッセージにメンテナンススケジュールを表示するかを設定します。",
+		"Help_Item_setnotification": "`/setnotification <有効/無効> [テキストチャンネル] [ロール] [自動削除]`\n  サーバーステータスの変化通知を設定します。",
+		"Help_Footer": "※ 管理コマンドはサーバー管理者のみ実行できます。"
+	},
+	"help": {
+		"title": "Help_Title",
+		"description": "Help_Description",
+		"category_general": "Help_Category_General",
+		"category_status": "Help_Category_Status",
+		"category_admin": "Help_Category_Admin",
+		"item_about": "Help_Item_about",
+		"item_ping": "Help_Item_ping",
+		"item_status": "Help_Item_status",
+		"item_schedule": "Help_Item_schedule",
+		"item_create": "Help_Item_create",
+		"item_viewsettings": "Help_Item_viewsettings",
+		"item_setindicator": "Help_Item_setindicator",
+		"item_setlanguage": "Help_Item_setlanguage",
+		"item_setscheduledisplay": "Help_Item_setscheduledisplay",
+		"item_setnotification": "Help_Item_setnotification",
+		"footer": "Help_Footer"
 	},
 	"commands": {
+		"help": {
+			"name": "help",
+			"description": "コマンド一覧を表示します。"
+		},
 		"about": {
 			"name": "about",
 			"description": "このBotについての情報を表示します。"

@@ -4,7 +4,7 @@ from typing import get_args
 
 from pycord.i18n import I18n, Locale
 
-from client import client
+from client import bot
 from logger import logger
 
 
@@ -47,7 +47,7 @@ class Localization:
 				cls.EXISTS_LOCALE_LIST[lang] = cls.LOCALE_DATA[lang]["info"]["name"]
 
 		# Pycord の多言語対応用クラスのインスタンスを生成
-		cls.i18n = I18n(client, consider_user_locale=True, **cls.LOCALE_DATA)
+		cls.i18n = I18n(bot.client, consider_user_locale=True, **cls.LOCALE_DATA)
 
 	@classmethod
 	def localize_commands(cls) -> None:

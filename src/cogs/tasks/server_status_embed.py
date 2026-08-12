@@ -10,7 +10,7 @@ from discord.ext import commands, tasks
 import embeds
 import icons
 import localizations
-from client import client
+from client import bot
 from config import GuildConfigManager
 from db import DBManager
 from kumasan import KumaSan
@@ -27,6 +27,9 @@ class ServerStatusEmbedManager(commands.Cog):
 		self.server_status_update_loop_is_running: bool = False
 		self.update_all.start()
 		self.status_embeds: dict[str, list[list[discord.Embed]]] = {}
+		self.server_status_embeds_count: int = 0
+		self.server_status_embeds_update_time: float = 0.0
+		"""作成されたサーバーステータス埋め込みメッセージの総数 (全ギルドの合計)"""
 
 	def _check_data_changed(
 		self,
@@ -141,6 +144,9 @@ class ServerStatusEmbedManager(commands.Cog):
 		schedule_data: dict[str, r6sss.types.MaintenanceSchedule] | None = None
 		msg = None
 
+		# 作成されたサーバーステータス埋め込みメッセージの総数をリセット
+		self.server_status_embeds_count = 0
+
 		# 埋め込みメッセージが渡されていない場合は情報を取得して生成する (情報の更新はしない)
 		if status_embeds is None:
 			# 各言語のサーバーステータス埋め込みメッセージのリスト
@@ -249,6 +255,9 @@ class ServerStatusEmbedManager(commands.Cog):
 							# メンテナンススケジュール埋め込みなし (ステータス埋め込みのみ)
 							else:
 								await msg.edit(embeds=target_embeds[0])
+
+							# 作成されたサーバーステータス埋め込みメッセージの総数をカウントする
+							self.server_status_embeds_count += 1
 
 						# メッセージが存在しない (削除されている) 場合
 						except discord.errors.NotFound as err:
@@ -395,7 +404,7 @@ class ServerStatusEmbedManager(commands.Cog):
 					]
 
 			# 各ギルドの埋め込みメッセージIDチェック、存在する場合はメッセージを更新する
-			for guild in client.guilds:
+			for guild in bot.client.guilds:
 				logger.info("ギルド: %s", guild.name)
 				try:
 					# データベースからギルドコンフィグを取得する
@@ -486,6 +495,7 @@ class ServerStatusEmbedManager(commands.Cog):
 		logger.info("- 処理時間: %s s", p_time_str)
 
 		await KumaSan.ping(state="up", message="サーバーステータスの更新完了", ping=str(int(p_time * 1000)))  # ミリ秒に直して渡す
+		self.server_status_embeds_update_time = p_time
 
 	@update_all.after_loop
 	async def after_update_all(self) -> None:

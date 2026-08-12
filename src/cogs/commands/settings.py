@@ -6,8 +6,7 @@ from discord.ext import commands
 from pycord.i18n import _
 
 import embeds
-from client import client
-from cogs.tasks.server_status_embed import ServerStatusEmbedManager
+from client import bot
 from config import GuildConfigManager
 from debug_logger import DebugLogger
 from localizations import Localization
@@ -57,7 +56,7 @@ class SettingsCommands(commands.Cog):
 			gc.server_status_message.language = "en_GB"
 
 		# サーバーステータス埋め込みメッセージを更新する
-		await client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
+		await bot.client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
 
 		# ギルドコンフィグを更新
 		if not (await GuildConfigManager.update(ctx.guild.id, gc)):
@@ -106,7 +105,7 @@ class SettingsCommands(commands.Cog):
 		gc.server_status_message.status_indicator = enable
 
 		# サーバーステータス埋め込みメッセージを更新する
-		await client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
+		await bot.client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
 
 		# ギルドコンフィグを更新
 		if not (await GuildConfigManager.update(ctx.guild.id, gc)):
@@ -156,7 +155,7 @@ class SettingsCommands(commands.Cog):
 				ch_id = ctx.channel_id if channel is None else channel.id
 
 				# 指定されたチャンネルが存在するかチェックする
-				ch = await client.get_or_fetch(discord.TextChannel, ch_id)
+				ch = await bot.client.get_or_fetch(discord.TextChannel, ch_id)
 				# 見つからない場合はエラーメッセージを送信する
 				if ch is None:
 					await ctx.send_followup(embed=embeds.Notification.error(description=_("CmdMsg_TextChannelNotFound")))
@@ -260,7 +259,7 @@ class SettingsCommands(commands.Cog):
 			gc.server_status_message.maintenance_schedule = enable
 
 			# サーバーステータス埋め込みメッセージを更新する
-			await client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
+			await bot.client.get_cog("ServerStatusEmbedManager").update(ctx.guild, None, gc, None)
 
 			# ギルドコンフィグを更新
 			if not (await GuildConfigManager.update(ctx.guild.id, gc)):
@@ -306,7 +305,7 @@ class SettingsCommands(commands.Cog):
 		embed = discord.Embed(title=":gear: " + _("Cmd_viewsettings_CurrentSettings"))
 
 		# 作成されたサーバーステータスメッセージ(とそのテキストチャンネル)を取得する
-		status_msg_ch = await client.get_or_fetch(discord.TextChannel, int(gc.server_status_message.channel_id))
+		status_msg_ch = await bot.client.get_or_fetch(discord.TextChannel, int(gc.server_status_message.channel_id))
 		if status_msg_ch:
 			try:
 				status_msg = await status_msg_ch.fetch_message(int(gc.server_status_message.message_id))
@@ -342,7 +341,7 @@ class SettingsCommands(commands.Cog):
 			inline=False,
 		)
 		# 通知
-		notif_ch = await client.get_or_fetch(discord.TextChannel, int(gc.server_status_notification.channel_id))
+		notif_ch = await bot.client.get_or_fetch(discord.TextChannel, int(gc.server_status_notification.channel_id))
 		if notif_ch is not None:
 			# 有効
 			notif_settings_text = f"`{_('True')}`"

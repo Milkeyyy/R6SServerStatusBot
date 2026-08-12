@@ -6,7 +6,7 @@ from pycord.i18n import _
 
 import icons
 import localizations
-from client import client
+from client import bot
 from logger import logger
 from server_status import ServerStatusManager
 
@@ -69,7 +69,7 @@ class Notification:
 		schedule_data: r6sss.types.MaintenanceSchedule | None = None,
 	) -> discord.Embed | None:
 		"""サーバーステータスの比較結果から通知用のEmbedを生成する"""
-		if ServerStatusManager.data is None or client.user is None:
+		if ServerStatusManager.data is None or bot.client.user is None:
 			return None
 
 		# if client.user is not None:
@@ -269,7 +269,7 @@ class ServerStatus:
 
 		# 各プラットフォームごとの埋め込みメッセージを作成
 		embed = discord.Embed()
-		embed.title = icons.R6SSS.ICON.value + " Rainbow Six Siege X Server Status"
+		embed.title = icons.R6SSS.ICON.value + " Rainbow Six Siege Server Status"
 		embed.description = (
 			"🕒 "
 			+ localizations.translate("Last Update", lang=locale)
