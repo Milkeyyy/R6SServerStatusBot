@@ -61,11 +61,6 @@ class GeneralCommands(commands.Cog):
 			value=f"`{App.VERSION_STRING}` ([`{App.get_git_commit_hash()[0:7]}`]({App.GITHUB_REPO_URL}/commit/{App.get_git_commit_hash()}))",
 		)
 		embed.add_field(
-			name="Guilds",
-			value=f"`{len(bot.client.guilds)}`",
-			inline=False,
-		)
-		embed.add_field(
 			name="Source",
 			value=f"- [GitHub]({App.GITHUB_REPO_URL})",
 			inline=False,
