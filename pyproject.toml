@@ -16,6 +16,9 @@ dependencies = [
     "uuid-utils>=0.17.0",
 ]
 
+[tool.uv]
+exclude-newer = "1 week"
+
 [tool.uv.sources]
 r6sss = { git = "https://github.com/Milkeyyy/R6SSS_Python" }
 
